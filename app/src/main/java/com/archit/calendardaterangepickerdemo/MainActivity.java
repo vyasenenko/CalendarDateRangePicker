@@ -32,11 +32,17 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onFirstDateSelected(Calendar startDate) {
                 Toast.makeText(MainActivity.this, "Start Date: " + startDate.getTime().toString(), Toast.LENGTH_SHORT).show();
+                Calendar start = (Calendar) startDate.clone();
+                Calendar end = (Calendar) startDate.clone();
+                end.add(Calendar.YEAR, 1);
+                start.add(Calendar.YEAR, -1);
+                calendar.setSelectableDateRange(start, end);
             }
 
             @Override
             public void onDateRangeSelected(Calendar startDate, Calendar endDate) {
                 Toast.makeText(MainActivity.this, "Start Date: " + startDate.getTime().toString() + " End date: " + endDate.getTime().toString(), Toast.LENGTH_SHORT).show();
+                calendar.setSelectableDateRange(null, null);
             }
 
         });
@@ -52,22 +58,22 @@ public class MainActivity extends AppCompatActivity {
 //        calendar.setNavLeftImage(ContextCompat.getDrawable(this,R.drawable.ic_left));
 //        calendar.setNavRightImage(ContextCompat.getDrawable(this,R.drawable.ic_right));
 
-        Calendar now = Calendar.getInstance();
-        now.add(Calendar.MONTH, -2);
-        Calendar later = (Calendar) now.clone();
-        later.add(Calendar.MONTH, 5);
-
-        calendar.setVisibleMonthRange(now,later);
-
-        Calendar startSelectionDate = Calendar.getInstance();
-        startSelectionDate.add(Calendar.MONTH, -1);
-        Calendar endSelectionDate = (Calendar) startSelectionDate.clone();
-        endSelectionDate.add(Calendar.DATE, 40);
-
-        calendar.setSelectedDateRange(startSelectionDate, endSelectionDate);
-
-        Calendar current = Calendar.getInstance();
-        calendar.setCurrentMonth(current);
+//        Calendar now = Calendar.getInstance();
+//        now.add(Calendar.MONTH, -2);
+//        Calendar later = (Calendar) now.clone();
+//        later.add(Calendar.MONTH, 5);
+//
+//        calendar.setVisibleMonthRange(now,later);
+//
+//        Calendar startSelectionDate = Calendar.getInstance();
+//        startSelectionDate.add(Calendar.MONTH, -1);
+//        Calendar endSelectionDate = (Calendar) startSelectionDate.clone();
+//        endSelectionDate.add(Calendar.DATE, 40);
+//
+//        calendar.setSelectedDateRange(startSelectionDate, endSelectionDate);
+//
+//        Calendar current = Calendar.getInstance();
+//        calendar.setCurrentMonth(current);
     }
 
 

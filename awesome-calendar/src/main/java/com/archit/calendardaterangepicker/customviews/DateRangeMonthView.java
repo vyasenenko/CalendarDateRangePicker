@@ -264,12 +264,10 @@ class DateRangeMonthView extends LinearLayout {
 
         if (currentCalendarMonth.get(Calendar.MONTH) != calendar.get(Calendar.MONTH)) {
             hideDayContainer(container);
-        } else if (today.after(calendar) && (today.get(Calendar.DAY_OF_YEAR) != calendar.get(Calendar.DAY_OF_YEAR))
-                && !calendarStyleAttr.isEnabledPastDates()) {
+        } else if (calendar.before(dateRangeCalendarManager.getMinSelectableDate())) {
             disableDayContainer(container);
             container.tvDate.setText(String.valueOf(date));
-        } else if (today.before(calendar) && (today.get(Calendar.DAY_OF_YEAR) != calendar.get(Calendar.DAY_OF_YEAR))
-                && !calendarStyleAttr.isEnabledFutureDates()) {
+        } else if (calendar.after(dateRangeCalendarManager.getMaxSelectableDate())) {
             disableDayContainer(container);
             container.tvDate.setText(String.valueOf(date));
         } else {

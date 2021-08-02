@@ -24,8 +24,6 @@ public class CalendarStyleAttr {
     private float textSizeTitle, textSizeWeek, textSizeDate;
     private boolean shouldEnabledTime = false;
     private int weekOffset = 0;
-    private boolean enabledPastDates = false;
-    private boolean enabledFutureDates = true;
     private boolean isEditable = true;
 
     public CalendarStyleAttr(Context context) {
@@ -88,8 +86,6 @@ public class CalendarStyleAttr {
                 rangeStripColor = ta.getColor(R.styleable.DateRangeMonthView_range_color, rangeStripColor);
                 selectedDateCircleColor = ta.getColor(R.styleable.DateRangeMonthView_selected_date_circle_color, selectedDateCircleColor);
                 shouldEnabledTime = ta.getBoolean(R.styleable.DateRangeMonthView_enable_time_selection, false);
-                enabledPastDates = ta.getBoolean(R.styleable.DateRangeMonthView_enable_past_date,false);
-                enabledFutureDates = ta.getBoolean(R.styleable.DateRangeMonthView_enable_future_date,true);
                 isEditable = ta.getBoolean(R.styleable.DateRangeMonthView_editable,true);
 
                 textSizeTitle = ta.getDimension(R.styleable.DateRangeMonthView_text_size_title, textSizeTitle);
@@ -223,22 +219,6 @@ public class CalendarStyleAttr {
 
     public int getWeekOffset() {
         return weekOffset;
-    }
-
-    public boolean isEnabledPastDates() {
-        return enabledPastDates;
-    }
-
-    public void setEnabledPastDates(boolean enabledPastDates) {
-        this.enabledPastDates = enabledPastDates;
-    }
-
-    public boolean isEnabledFutureDates() {
-        return enabledFutureDates;
-    }
-
-    public void setEnabledFutureDates(boolean enabledFutureDates) {
-        this.enabledFutureDates = enabledFutureDates;
     }
 
     /**

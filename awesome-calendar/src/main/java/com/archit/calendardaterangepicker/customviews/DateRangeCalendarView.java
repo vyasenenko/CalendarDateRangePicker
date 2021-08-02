@@ -246,6 +246,10 @@ public class DateRangeCalendarView extends LinearLayout {
         adapterEventCalendarMonths.setSelectedDate(startDate, endDate);
     }
 
+    public void setSelectableDateRange(@Nullable Calendar startDate, @Nullable Calendar endDate) {
+        adapterEventCalendarMonths.setSelectableDate(startDate, endDate);
+    }
+
     /**
      * To get start date.
      */
